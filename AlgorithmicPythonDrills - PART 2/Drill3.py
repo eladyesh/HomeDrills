@@ -1,4 +1,4 @@
-def is_sorted_palindrome(s) -> bool:
+def is_sorted_palindrome(s: string) -> bool:
     """
     Check if a string is a sorted palindrome.
 

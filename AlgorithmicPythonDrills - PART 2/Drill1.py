@@ -1,7 +1,7 @@
 import math
 
 
-def num_len(num) -> int:
+def num_len(num: int) -> int:
     
     """
     Return the number of digits in a given number.
