@@ -3,6 +3,7 @@ import numpy as np
 
 
 def main():
+    
     """
     Main function to collect input numbers, calculate statistics (average, number of positive numbers, sorted numbers
     in ascending order), and display results.
@@ -45,4 +46,5 @@ def main():
 
 
 if __name__ == "__main__":
+    
     main()
