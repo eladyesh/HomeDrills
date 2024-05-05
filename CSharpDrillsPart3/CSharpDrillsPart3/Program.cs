@@ -11,6 +11,10 @@ namespace CSharpDrillsPart3
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("\n\n===========================================");
+            Console.WriteLine("================ QUESTION 6 ===============");
+            Console.WriteLine("===========================================\n\n");
+
             // Create a new sorted linked list
             LinkedList list = new LinkedList();
 
@@ -59,6 +63,18 @@ namespace CSharpDrillsPart3
             maxNode = list.GetMaxNode();
             Console.WriteLine("Minimum Value: " + minNode.Value);
             Console.WriteLine("Maximum Value: " + maxNode.Value);
+
+            Console.WriteLine("\n\n===========================================");
+            Console.WriteLine("================ QUESTION 7 ===============");
+            Console.WriteLine("===========================================\n\n");
+
+            EnglishNumericalExpression number = new EnglishNumericalExpression(548);
+            Console.WriteLine(number.ToString());
+            Console.WriteLine(EnglishNumericalExpression.SumLetters((x) => x.GetValue(), 548));
+
+            number = new EnglishNumericalExpression(9672);
+            Console.WriteLine(number.ToString());
+            Console.WriteLine(EnglishNumericalExpression.SumLetters((x) => x.GetValue(), 9672));
         }
     }
 }
