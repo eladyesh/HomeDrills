@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSharpDrillsPart3
 {
+    /// <summary>
+    /// Represents a singly linked list of integers with various operations.
+    /// </summary>
     public class LinkedList
     {
         private Node<int> head;
@@ -13,10 +16,15 @@ namespace CSharpDrillsPart3
         private Node<int> minNode;
         private Node<int> maxNode;
 
+        /// <summary>
+        /// Appends a new node with the specified value to the end of the list.
+        /// </summary>
+        /// <param name="value">The value to be appended.</param>
         public void Append(int value)
         {
             Node<int> newNode = new Node<int> { Value = value };
 
+            // If list is empty, initialize head, tail, minNode, and maxNode to the new node
             if (head == null)
             {
                 head = newNode;
@@ -29,6 +37,7 @@ namespace CSharpDrillsPart3
                 tail.Next = newNode;
                 tail = newNode;
 
+                // Update minNode and maxNode if necessary
                 if (value < minNode.Value)
                     minNode = newNode;
                 else if (value > maxNode.Value)
@@ -36,6 +45,10 @@ namespace CSharpDrillsPart3
             }
         }
 
+        /// <summary>
+        /// Prepends a new node with the specified value to the beginning of the list.
+        /// </summary>
+        /// <param name="value">The value to be prepended.</param>
         public void Prepend(int value)
         {
             Node<int> newHead = new Node<int> { Value = value, Next = head };
@@ -46,17 +59,23 @@ namespace CSharpDrillsPart3
                 tail = head;
             }
 
+            // Update minNode and maxNode if necessary
             if (value < minNode.Value)
                 minNode = newHead;
             else if (value > maxNode.Value)
                 maxNode = newHead;
         }
 
+        /// <summary>
+        /// Removes and returns the last element from the list.
+        /// </summary>
+        /// <returns>The value of the removed element.</returns>
         public int Pop()
         {
             if (head == null)
                 throw new Exception("List is empty");
 
+            // If there's only one element in the list, reset all references
             if (head == tail)
             {
                 int value = head.Value;
@@ -67,6 +86,7 @@ namespace CSharpDrillsPart3
                 return value;
             }
 
+            // Get to the last of the list and remove
             Node<int> current = head;
             while (current.Next != tail)
             {
@@ -86,6 +106,10 @@ namespace CSharpDrillsPart3
             return lastValue;
         }
 
+        /// <summary>
+        /// Removes and returns the first element from the list.
+        /// </summary>
+        /// <returns>The value of the removed element.</returns>
         public int Unqueue()
         {
             if (head == null)
@@ -109,6 +133,10 @@ namespace CSharpDrillsPart3
             return firstValue;
         }
 
+        /// <summary>
+        /// Returns an enumerable collection of all values in the list.
+        /// </summary>
+        /// <returns>An enumerable collection of integers.</returns>
         public IEnumerable<int> ToList()
         {
             Node<int> current = head;
@@ -119,6 +147,10 @@ namespace CSharpDrillsPart3
             }
         }
 
+        /// <summary>
+        /// Checks whether the list contains a cycle.
+        /// </summary>
+        /// <returns>True if the list contains a cycle, otherwise false.</returns>
         public bool IsCircular()
         {
             if (head == null)
@@ -138,6 +170,9 @@ namespace CSharpDrillsPart3
             return false;
         }
 
+        /// <summary>
+        /// Sorts the elements of the list in non-decreasing order. (Bubble Sort)
+        /// </summary>
         public void Sort()
         {
             if (head == null || head == tail)
@@ -178,6 +213,10 @@ namespace CSharpDrillsPart3
             tail = newTail;
         }
 
+        /// <summary>
+        /// Gets the node with the maximum value in the list.
+        /// </summary>
+        /// <returns>The node with the maximum value.</returns>
         public Node<int> GetMaxNode()
         {
             if (maxNode == null)
@@ -186,6 +225,10 @@ namespace CSharpDrillsPart3
             return maxNode;
         }
 
+        /// <summary>
+        /// Gets the node with the minimum value in the list.
+        /// </summary>
+        /// <returns>The node with the minimum value.</returns>
         public Node<int> GetMinNode()
         {
             if (minNode == null)
@@ -194,6 +237,9 @@ namespace CSharpDrillsPart3
             return minNode;
         }
 
+        /// <summary>
+        /// Updates the minNode reference to the node with the minimum value in the list.
+        /// </summary>
         private void UpdateMinNode()
         {
             if (head == null)
@@ -216,6 +262,9 @@ namespace CSharpDrillsPart3
             minNode = min;
         }
 
+        /// <summary>
+        /// Updates the maxNode reference to the node with the maximum value in the list.
+        /// </summary>
         private void UpdateMaxNode()
         {
             if (head == null)

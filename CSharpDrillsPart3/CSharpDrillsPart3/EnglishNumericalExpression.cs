@@ -21,12 +21,7 @@ namespace CSharpDrillsPart3
 
         public override string ToString()
         {
-            /*
-             * Convert the number to its verbal expression.
-             *
-             * Returns:
-             *     string: The verbal expression of the number.
-             */
+
             string[] units = { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
             string[] teens = { "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
             string[] tens = { "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
@@ -110,29 +105,18 @@ namespace CSharpDrillsPart3
 
         public long GetValue()
         {
-            /*
-             * Get the number value.
-             *
-             * Returns:
-             *     long: The value of the number.
-             */
             return number;
         }
 
         public static int SumLetters(Func<EnglishNumericalExpression, long> numberFunction, long num)
         {
-            /*
-             * Calculate the sum of letters needed to write all numerical expressions from 0 to the given number.
-             *
-             * Args:
-             *     numberFunction (Func<NumericalExpression, long>): Function to create NumericalExpression instances.
-             *     num (long): The number up to which the sum is calculated.
-             *
-             * Returns:
-             *     int: The sum of letters.
-             */
+            // העקרון שממומש פה הוא אינקפסולציה.
+            // new EnglishNumericalExpression(i)).ToString() כאשר אנחנו משתמשים בפונקציה 
+            // SumLetters אנחנו מסתירים את המימוש שלה מ 
+            // EnglishNumericalExpression ובכך הפונקציה רק יודעת שהיא מקבלת את 
+            // ToString() עם מספר, והיא יכולה לקרוא ל  
+            // שלו ולקבל אותו וורבלי, ללא ידיעה על פרטים נוספים מהמחלקה
 
-            // The principle 
             int sum = 0;
             for (long i = 0; i <= num; i++)
             {
