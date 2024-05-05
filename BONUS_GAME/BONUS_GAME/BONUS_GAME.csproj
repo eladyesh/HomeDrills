@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B97E8C19-7A42-41B0-BA58-6694F02D1F16}</ProjectGuid>
+    <ProjectGuid>{FDC71D3E-6B08-489D-A488-AE6E0054695D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_2048_BONUS</RootNamespace>
-    <AssemblyName>2048_BONUS</AssemblyName>
+    <RootNamespace>BONUS_GAME</RootNamespace>
+    <AssemblyName>BONUS_GAME</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameStatus.cs" />
+    <Compile Include="Direction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("2048_BONUS")]
+[assembly: AssemblyTitle("BONUS_GAME")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("2048_BONUS")]
+[assembly: AssemblyProduct("BONUS_GAME")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b97e8c19-7a42-41b0-ba58-6694f02d1f16")]
+[assembly: Guid("fdc71d3e-6b08-489d-a488-ae6e0054695d")]
 
 // Version information for an assembly consists of the following four values:
 //

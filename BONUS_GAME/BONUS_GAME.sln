@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2048_BONUS", "2048_BONUS\2048_BONUS.csproj", "{B97E8C19-7A42-41B0-BA58-6694F02D1F16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BONUS_GAME", "BONUS_GAME\BONUS_GAME.csproj", "{FDC71D3E-6B08-489D-A488-AE6E0054695D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B97E8C19-7A42-41B0-BA58-6694F02D1F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B97E8C19-7A42-41B0-BA58-6694F02D1F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B97E8C19-7A42-41B0-BA58-6694F02D1F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B97E8C19-7A42-41B0-BA58-6694F02D1F16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDC71D3E-6B08-489D-A488-AE6E0054695D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC71D3E-6B08-489D-A488-AE6E0054695D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC71D3E-6B08-489D-A488-AE6E0054695D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC71D3E-6B08-489D-A488-AE6E0054695D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F4F58E41-EEB7-4E71-9AD7-67235DFBAC6B}
+		SolutionGuid = {13FCB1F6-1D03-49C0-846E-F81ED8E7E3C9}
 	EndGlobalSection
 EndGlobal
