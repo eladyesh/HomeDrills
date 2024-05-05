@@ -20,6 +20,7 @@ def num_len(num) -> int:
 
 
 if __name__ == "__main__":
+    
     print(num_len(100))  # print 3
     print(num_len(-475))  # print 3
     print(num_len(77777))  # print 5
