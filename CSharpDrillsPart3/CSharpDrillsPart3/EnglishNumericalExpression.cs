@@ -9,6 +9,7 @@ namespace CSharpDrillsPart3
     public interface ILanguageConverter
     {
         string ConvertToWords(long num);
+        string ToString();
     }
     public class EnglishNumericalExpression : ILanguageConverter
     {

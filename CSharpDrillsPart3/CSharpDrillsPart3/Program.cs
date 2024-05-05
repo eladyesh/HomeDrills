@@ -68,13 +68,19 @@ namespace CSharpDrillsPart3
             Console.WriteLine("================ QUESTION 7 ===============");
             Console.WriteLine("===========================================\n\n");
 
+            int firstNumber = 548;
             EnglishNumericalExpression number = new EnglishNumericalExpression(548);
-            Console.WriteLine(number.ToString());
-            Console.WriteLine(EnglishNumericalExpression.SumLetters((x) => x.GetValue(), 548));
+            Console.WriteLine($"The number {firstNumber} verbally is " + number.ToString());
+            Console.WriteLine($"Amount of letters needed to write verablly the numbers from 0 to {firstNumber} is " + EnglishNumericalExpression.SumLetters((x) => x.GetValue(), 548));
+            
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
 
+            int secondNumber = 9672;
             number = new EnglishNumericalExpression(9672);
-            Console.WriteLine(number.ToString());
-            Console.WriteLine(EnglishNumericalExpression.SumLetters((x) => x.GetValue(), 9672));
+            Console.WriteLine($"The number {secondNumber} verbally is " +  number.ToString());
+            Console.WriteLine($"Amount of letters needed to write verablly the numbers from 0 to {secondNumber} number is " + EnglishNumericalExpression.SumLetters((x) => x.GetValue(), 9672));
         }
     }
 }
