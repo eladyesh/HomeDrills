@@ -8,7 +8,7 @@ def is_sorted_palindrome(s) -> bool:
     Returns:
     bool: True if the string is a sorted palindrome, False otherwise.
     """
-
+    
     # Check if the string is a palindrome
     if s != s[::-1]:
         return False
