@@ -2,6 +2,7 @@ import mpmath
 
 
 def reverse_n_pi_digits(n: int) -> str:
+    
     """
     Reverse the first n digits of the mathematical constant pi.
 
@@ -11,6 +12,7 @@ def reverse_n_pi_digits(n: int) -> str:
     Returns:
         str: A string representing the reversed first n digits of pi.
     """
+    
     # Set the precision (number of digits) for pi
     mpmath.mp.dps = n + 1
     pi_str = str(mpmath.pi)
