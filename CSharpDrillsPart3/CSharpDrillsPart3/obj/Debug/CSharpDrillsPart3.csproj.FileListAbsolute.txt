@@ -1,0 +1,8 @@
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\CSharpDrillsPart3\CSharpDrillsPart3\bin\Debug\CSharpDrillsPart3.exe.config
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\CSharpDrillsPart3\CSharpDrillsPart3\bin\Debug\CSharpDrillsPart3.exe
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\CSharpDrillsPart3\CSharpDrillsPart3\bin\Debug\CSharpDrillsPart3.pdb
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\CSharpDrillsPart3\CSharpDrillsPart3\obj\Debug\CSharpDrillsPart3.csproj.AssemblyReference.cache
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\CSharpDrillsPart3\CSharpDrillsPart3\obj\Debug\CSharpDrillsPart3.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\CSharpDrillsPart3\CSharpDrillsPart3\obj\Debug\CSharpDrillsPart3.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\CSharpDrillsPart3\CSharpDrillsPart3\obj\Debug\CSharpDrillsPart3.exe
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\CSharpDrillsPart3\CSharpDrillsPart3\obj\Debug\CSharpDrillsPart3.pdb
