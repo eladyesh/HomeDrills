@@ -74,7 +74,7 @@ namespace CSharpDrillsPart3
         public int Pop()
         {
             if (head == null)
-                throw new Exception("List is empty");
+                throw new InvalidOperationException("List is empty");
 
             // If there's only one element in the list, reset all references
             if (head == tail)
@@ -114,7 +114,7 @@ namespace CSharpDrillsPart3
         public int Unqueue()
         {
             if (head == null)
-                throw new Exception("List is empty");
+                throw new InvalidOperationException("List is empty");
 
             int firstValue = head.Value;
             head = head.Next;
@@ -222,7 +222,7 @@ namespace CSharpDrillsPart3
         public Node<int> GetMaxNode()
         {
             if (maxNode == null)
-                throw new Exception("List is empty");
+                throw new InvalidOperationException("List is empty");
 
             return maxNode;
         }
@@ -234,7 +234,7 @@ namespace CSharpDrillsPart3
         public Node<int> GetMinNode()
         {
             if (minNode == null)
-                throw new Exception("List is empty");
+                throw new InvalidOperationException("List is empty");
 
             return minNode;
         }

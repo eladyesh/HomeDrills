@@ -6,3 +6,11 @@ C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\BONUS_GAME\BONUS_GAME\obj
 C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\BONUS_GAME\BONUS_GAME\obj\Debug\BONUS_GAME.csproj.CoreCompileInputs.cache
 C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\BONUS_GAME\BONUS_GAME\obj\Debug\BONUS_GAME.exe
 C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\BONUS_GAME\BONUS_GAME\obj\Debug\BONUS_GAME.pdb
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\GAME - PART 4\BONUS_GAME\BONUS_GAME\bin\Debug\BONUS_GAME.exe.config
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\GAME - PART 4\BONUS_GAME\BONUS_GAME\bin\Debug\BONUS_GAME.exe
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\GAME - PART 4\BONUS_GAME\BONUS_GAME\bin\Debug\BONUS_GAME.pdb
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\GAME - PART 4\BONUS_GAME\BONUS_GAME\obj\Debug\BONUS_GAME.csproj.AssemblyReference.cache
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\GAME - PART 4\BONUS_GAME\BONUS_GAME\obj\Debug\BONUS_GAME.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\GAME - PART 4\BONUS_GAME\BONUS_GAME\obj\Debug\BONUS_GAME.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\GAME - PART 4\BONUS_GAME\BONUS_GAME\obj\Debug\BONUS_GAME.exe
+C:\Users\user\Downloads\C_sharp_home_drills\HomeDrills\GAME - PART 4\BONUS_GAME\BONUS_GAME\obj\Debug\BONUS_GAME.pdb

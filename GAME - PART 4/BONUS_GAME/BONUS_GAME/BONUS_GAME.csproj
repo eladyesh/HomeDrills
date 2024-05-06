@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs" />
+    <Compile Include="ConsoleGame.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="GameStatus.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Program.cs" />
