@@ -19,7 +19,7 @@ namespace CSharpDrillsPart3
         string ConvertToWords(long num);
 
         /// <summary>
-        /// Returns a string representation of the language converter.
+        /// Returns a string representation of the number given to EnglishNumericalExpression.
         /// </summary>
         /// <returns>A string representation of the language converter.</returns>
         string ToString();
@@ -27,6 +27,7 @@ namespace CSharpDrillsPart3
     public class EnglishNumericalExpression : ILanguageConverter
     {
         private long number;
+        private Func<long, string> convertToWordsFunc;
 
         /// <summary>
         /// Initializes a new instance of the EnglishNumericalExpression class.
@@ -39,13 +40,15 @@ namespace CSharpDrillsPart3
 
         public override string ToString()
         {
+            long expressionNumber = number;
+
             // Arrays to hold string representations of units, teens, and tens.
             string[] units = { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
             string[] teens = { "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
             string[] tens = { "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
 
             // If the number is zero, return "Zero".
-            if (number == 0)
+            if (expressionNumber == 0)
             {
                 return "Zero";
             }
@@ -53,51 +56,51 @@ namespace CSharpDrillsPart3
             string result = "";
 
             // If the number is negative, add "Minus" to the result and make the number positive.
-            if (number < 0)
+            if (expressionNumber < 0)
             {
                 result += "Minus ";
                 number = -number;
             }
 
             // Convert each group of digits (quadrillion, trillion, billion, etc.) to words.
-            if ((number / 1000000000000000) > 0)
+            if ((expressionNumber / 1000000000000000) > 0)
             {
                 result += ConvertToWords(number / 1000000000000000) + " Quadrillion ";
                 number %= 1000000000000000;
             }
 
-            if ((number / 1000000000000) > 0)
+            if ((expressionNumber / 1000000000000) > 0)
             {
-                result += ConvertToWords(number / 1000000000000) + " Trillion ";
-                number %= 1000000000000;
+                result += ConvertToWords(expressionNumber / 1000000000000) + " Trillion ";
+                expressionNumber %= 1000000000000;
             }
 
-            if ((number / 1000000000) > 0)
+            if ((expressionNumber / 1000000000) > 0)
             {
-                result += ConvertToWords(number / 1000000000) + " Billion ";
+                result += ConvertToWords(expressionNumber / 1000000000) + " Billion ";
                 number %= 1000000000;
             }
 
-            if ((number / 1000000) > 0)
+            if ((expressionNumber / 1000000) > 0)
             {
-                result += ConvertToWords(number / 1000000) + " Million ";
-                number %= 1000000;
+                result += ConvertToWords(expressionNumber / 1000000) + " Million ";
+                expressionNumber %= 1000000;
             }
 
-            if ((number / 1000) > 0)
+            if ((expressionNumber / 1000) > 0)
             {
-                result += ConvertToWords(number / 1000) + " Thousand ";
-                number %= 1000;
+                result += ConvertToWords(expressionNumber / 1000) + " Thousand ";
+                expressionNumber %= 1000;
             }
 
-            if ((number / 100) > 0)
+            if ((expressionNumber / 100) > 0)
             {
-                result += units[number / 100] + " Hundred ";
-                number %= 100;
+                result += units[expressionNumber / 100] + " Hundred ";
+                expressionNumber %= 100;
             }
 
             // Convert the remaining number less than 100 to words.
-            if (number > 0)
+            if (expressionNumber > 0)
             {
                 // If there is already some result, add "And ".
                 if (result != "")
@@ -106,20 +109,20 @@ namespace CSharpDrillsPart3
                 }
 
                 // Convert numbers less than 10 directly, and numbers between 10 and 99 using the tens and units arrays.
-                if (number < 10)
+                if (expressionNumber < 10)
                 {
-                    result += units[number];
+                    result += units[expressionNumber];
                 }
-                else if (number < 20)
+                else if (expressionNumber < 20)
                 {
-                    result += teens[number - 10];
+                    result += teens[expressionNumber - 10];
                 }
                 else
                 {
-                    result += tens[number / 10];
-                    if ((number % 10) > 0)
+                    result += tens[expressionNumber / 10];
+                    if ((expressionNumber % 10) > 0)
                     {
-                        result += "-" + units[number % 10];
+                        result += "-" + units[expressionNumber % 10];
                     }
                 }
             }
@@ -139,25 +142,42 @@ namespace CSharpDrillsPart3
         /// <summary>
         /// Sum the lengths of the words for numbers from 0 to the given number.
         /// </summary>
-        /// <param name="expressionValueExtractor">A function that converts a number to words.</param>
-        /// <param name="upperLimit">The upper limit of numbers to consider.</param>
+        /// <param name="upperLimit"></param>
         /// <returns>The sum of the lengths of the words for numbers from 0 to the given number.</returns>
-        public static int SumLetters(Func<EnglishNumericalExpression, long> expressionValueExtractor, long upperLimit)
+        public static int SumLetters(long upperLimit)
         {
-            //  העקרון שממומש פה הוא אינקפסולציה. כימו
-            // new EnglishNumericalExpression(i)).ToString() כאשר אנחנו משתמשים בפונקציה 
-            // SumLetters אנחנו מסתירים את המימוש שלה מ 
-            // EnglishNumericalExpression ובכך הפונקציה רק יודעת שהיא מקבלת את 
-            // ToString() עם מספר, והיא יכולה לקרוא ל  
-            // שלו ולקבל אותו וורבלי, ללא ידיעה על פרטים נוספים מהמחלקה
-
             int sum = 0;
             for (long i = 0; i <= upperLimit; i++)
             {
-                sum += expressionValueExtractor(new EnglishNumericalExpression(i)).ToString().Replace(" ", "").Length;
+                sum += new EnglishNumericalExpression(i).ToString().Replace(" ", "").Length;
             }
             return sum;
         }
+
+        /// <summary>
+        /// Sum the lengths of the words for numbers from 0 to the given number represented by the EnglishNumericalExpression instance.
+        /// </summary
+        /// <param name="englishNumericalExpression">The EnglishNumericalExpression instance representing the upper limit of the range.</param>
+        /// <returns>The sum of the lengths of the words for numbers from 0 to the given number.</returns>
+        /// 
+        /// 
+        /// <remarks>
+        /// The second function showcases overloading, an OOP principle. It allows for multiple versions of the same function with different parameter types, enhancing flexibility and code clarity.
+        /// By providing different versions of SumLetters in englishNumericalExpression —one accepting a long and the other an EnglishNumericalExpression.
+        /// </remarks>
+        /// 
+        ///
+        public static int SumLetters(EnglishNumericalExpression englishNumericalExpression)
+        {
+            long upperLimit = englishNumericalExpression.GetValue();
+            int sum = 0;
+            for (long i = 0; i <= upperLimit; i++)
+            {
+                sum += new EnglishNumericalExpression(i).ToString().Replace(" ", "").Length;
+            }
+            return sum;
+        }
+
 
         /// <summary>
         /// Convert a given number to words.

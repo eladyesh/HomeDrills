@@ -71,20 +71,24 @@ namespace CSharpDrillsPart3
             Console.WriteLine("===========================================\n\n");
 
             // First number to expression
-            int firstNumber = 548;
-            EnglishNumericalExpression number = new EnglishNumericalExpression(548);
-            Console.WriteLine($"The number {firstNumber} verbally is " + number.ToString());
-            Console.WriteLine($"Amount of letters needed to write verablly the numbers from 0 to {firstNumber} is " + EnglishNumericalExpression.SumLetters((x) => x.GetValue(), 548));
+            long firstNumber = 548;
+            EnglishNumericalExpression englishNumerical = new EnglishNumericalExpression(firstNumber);
+            Console.WriteLine($"The number {firstNumber} verbally is " + englishNumerical.ToString());
+            Console.WriteLine($"Amount of letters needed to write verablly the numbers from 0 to {firstNumber} is " + EnglishNumericalExpression.SumLetters(firstNumber));
             
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
 
             // Second number to expression
-            int secondNumber = 9672;
-            number = new EnglishNumericalExpression(9672);
-            Console.WriteLine($"The number {secondNumber} verbally is " +  number.ToString());
-            Console.WriteLine($"Amount of letters needed to write verablly the numbers from 0 to {secondNumber} number is " + EnglishNumericalExpression.SumLetters((x) => x.GetValue(), 9672));
+            long secondNumber = 9672;
+            englishNumerical = new EnglishNumericalExpression(secondNumber);
+            Console.WriteLine($"The number {secondNumber} verbally is " + englishNumerical.ToString());
+            Console.WriteLine($"Amount of letters needed to write verablly the numbers from 0 to {secondNumber} number is " + EnglishNumericalExpression.SumLetters(englishNumerical));
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
         }
     }
 }
