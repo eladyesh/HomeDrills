@@ -56,10 +56,12 @@ namespace BONUS_GAME
             if (_game.Status == GameStatus.Win)
             {
                 Console.WriteLine("Congratulations! You win!");
+                Console.ReadKey(true);
             }
             else if (_game.Status == GameStatus.Lose)
             {
                 Console.WriteLine("Game over! You lose!");
+                Console.ReadKey(true);
             }
         }
 

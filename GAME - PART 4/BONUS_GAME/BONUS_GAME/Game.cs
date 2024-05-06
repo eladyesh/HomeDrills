@@ -56,16 +56,13 @@ namespace BONUS_GAME
             Points += score;
 
             // Check if the move was successful and update game status accordingly.
-            if (score > 0)
+            if (IsWin())
             {
-                if (IsWin())
-                {
-                    _status = GameStatus.Win;
-                }
-                else if (!CanMove())
-                {
-                    _status = GameStatus.Lose;
-                }
+                _status = GameStatus.Win;
+            }
+            else if (!CanMove())
+            {
+                _status = GameStatus.Lose;
             }
         }
 
