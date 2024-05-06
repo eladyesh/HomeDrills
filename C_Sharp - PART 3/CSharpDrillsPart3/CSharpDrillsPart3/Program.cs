@@ -30,7 +30,8 @@ namespace CSharpDrillsPart3
             // Display the sorted linked list
             Console.WriteLine("Sorted Linked List:");
             list.Sort();
-            foreach (int value in list.ToList())
+            List<int> listToShow = list.ToList().ToList();
+            foreach (int value in listToShow)
             {
                 Console.Write(value + " ");
             }
@@ -59,6 +60,7 @@ namespace CSharpDrillsPart3
             }
             Console.WriteLine();
 
+            // Updated min value and max value
             minNode = list.GetMinNode();
             maxNode = list.GetMaxNode();
             Console.WriteLine("Minimum Value: " + minNode.Value);

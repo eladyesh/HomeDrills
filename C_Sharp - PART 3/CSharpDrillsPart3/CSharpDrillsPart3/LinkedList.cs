@@ -52,8 +52,8 @@ namespace CSharpDrillsPart3
         /// <param name="value">The value to be prepended.</param>
         public void Prepend(int value)
         {
-            Node<int> newHead = new Node<int> { Value = value, Next = head };
-            head = newHead;
+            Node<int> newhead = new Node<int> { Value = value, Next = head };
+            head = newhead;
 
             if (tail == null)
             {
@@ -62,9 +62,9 @@ namespace CSharpDrillsPart3
 
             // Update minNode and maxNode if necessary
             if (value < minNode.Value)
-                minNode = newHead;
+                minNode = newhead;
             else if (value > maxNode.Value)
-                maxNode = newHead;
+                maxNode = newhead;
         }
 
         /// <summary>
@@ -207,12 +207,12 @@ namespace CSharpDrillsPart3
             } while (swapped);
 
             // Restore head and tail references after sorting
-            Node<int> newTail = head;
-            while (newTail.Next != null)
+            Node<int> newtail = head;
+            while (newtail.Next != null)
             {
-                newTail = newTail.Next;
+                newtail = newtail.Next;
             }
-            tail = newTail;
+            tail = newtail;
         }
 
         /// <summary>
