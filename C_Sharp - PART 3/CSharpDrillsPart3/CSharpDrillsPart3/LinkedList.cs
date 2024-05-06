@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharpDrillsPart3
 {
+    // ==================== EXERCISE 6 ====================
     /// <summary>
     /// Represents a singly linked list of integers with various operations.
     /// </summary>
@@ -163,7 +164,8 @@ namespace CSharpDrillsPart3
             {
                 if (first == second)
                     return true;
-
+                   
+                // We want the second to move faster than first, so it could catch up if the List is Circular
                 first = first.Next;
                 second = second.Next.Next;
             }
@@ -251,6 +253,8 @@ namespace CSharpDrillsPart3
             Node<int> current = head;
             Node<int> min = head;
 
+            // Iterate over list, check if there is a number that is smaller than head.value;
+            // If so, update min
             while (current != null)
             {
                 if (current.Value < min.Value)
@@ -276,6 +280,8 @@ namespace CSharpDrillsPart3
             Node<int> current = head;
             Node<int> max = head;
 
+            // Iterate over list, check if there is a number that is bigger than head.value;
+            // If so, update max
             while (current != null)
             {
                 if (current.Value > max.Value)

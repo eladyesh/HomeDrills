@@ -68,6 +68,7 @@ namespace CSharpDrillsPart3
             Console.WriteLine("================ QUESTION 7 ===============");
             Console.WriteLine("===========================================\n\n");
 
+            // First number to expression
             int firstNumber = 548;
             EnglishNumericalExpression number = new EnglishNumericalExpression(548);
             Console.WriteLine($"The number {firstNumber} verbally is " + number.ToString());
@@ -77,6 +78,7 @@ namespace CSharpDrillsPart3
             Console.WriteLine();
             Console.WriteLine();
 
+            // Second number to expression
             int secondNumber = 9672;
             number = new EnglishNumericalExpression(9672);
             Console.WriteLine($"The number {secondNumber} verbally is " +  number.ToString());

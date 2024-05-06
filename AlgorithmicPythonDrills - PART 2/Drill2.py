@@ -1,5 +1,7 @@
 def pythagorean_triplet_by_sum(sum: int):
-    """Prints all Pythagorean triplets that sum up to a given number.
+
+    """
+    Prints all Pythagorean triplets that sum up to a given number.
 
     Args:
         sum (int): The desired sum of the Pythagorean triplets.
