@@ -72,9 +72,9 @@ namespace CSharpDrillsPart3
 
             // First number to expression
             long firstNumber = 548;
-            EnglishNumericalExpression englishNumerical = new EnglishNumericalExpression(firstNumber);
-            Console.WriteLine($"The number {firstNumber} verbally is " + englishNumerical.ToString());
-            Console.WriteLine($"Amount of letters needed to write verablly the numbers from 0 to {firstNumber} is " + EnglishNumericalExpression.SumLetters(firstNumber));
+            NumericalExpression numericalExpression = new NumericalExpression(firstNumber, new EnglishNumericalExpression().ToVerbal);
+            Console.WriteLine($"The number {firstNumber} verbally is " + numericalExpression.ToString());
+            Console.WriteLine($"Amount of letters needed to write verablly the numbers from 0 to {firstNumber} is " + NumericalExpression.SumLetters(firstNumber, new EnglishNumericalExpression().ToVerbal));
             
             Console.WriteLine();
             Console.WriteLine();
@@ -82,13 +82,14 @@ namespace CSharpDrillsPart3
 
             // Second number to expression
             long secondNumber = 9672;
-            englishNumerical = new EnglishNumericalExpression(secondNumber);
-            Console.WriteLine($"The number {secondNumber} verbally is " + englishNumerical.ToString());
-            Console.WriteLine($"Amount of letters needed to write verablly the numbers from 0 to {secondNumber} number is " + EnglishNumericalExpression.SumLetters(englishNumerical));
+            numericalExpression = new NumericalExpression(secondNumber, new EnglishNumericalExpression().ToVerbal);
+            Console.WriteLine($"The number {secondNumber} verbally is " + numericalExpression.ToString());
+            Console.WriteLine($"Amount of letters needed to write verablly the numbers from 0 to {secondNumber} number is " + NumericalExpression.SumLetters(numericalExpression, new EnglishNumericalExpression().ToVerbal));
 
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
         }
+
     }
 }

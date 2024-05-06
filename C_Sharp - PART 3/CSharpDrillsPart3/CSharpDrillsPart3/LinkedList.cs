@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSharpDrillsPart3
 {
+    // ====================================================
     // ==================== EXERCISE 6 ====================
+    // ====================================================
     /// <summary>
     /// Represents a singly linked list of integers with various operations.
     /// </summary>
