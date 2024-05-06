@@ -59,9 +59,9 @@ namespace BONUS_GAME
         /// </summary>
         /// <param name="direction">The direction in which to move the tiles.</param>
         /// <returns>True if any tiles were moved, false otherwise.</returns>
-        public bool Move(Direction direction)
+        public int Move(Direction direction)
         {
-            bool moved = false;
+            int gamePoints = 0;
 
             // Check what numbers are even at each column row
             // If you can move, update the moved to true, and return
@@ -70,36 +70,33 @@ namespace BONUS_GAME
                 case Direction.Up:
                     for (int col = 0; col < 4; col++)
                     {
-                        moved |= MoveColumn(col, -1);
+                        gamePoints += MoveColumn(col, -1);
                     }
                     break;
                 case Direction.Down:
                     for (int col = 0; col < 4; col++)
                     {
-                        moved |= MoveColumn(col, 1);
+                        gamePoints += MoveColumn(col, 1);
                     }
                     break;
                 case Direction.Left:
                     for (int row = 0; row < 4; row++)
                     {
-                        moved |= MoveRow(row, -1);
+                        gamePoints += MoveRow(row, -1);
                     }
                     break;
                 case Direction.Right:
                     for (int row = 0; row < 4; row++)
                     {
-                        moved |= MoveRow(row, 1);
+                        gamePoints += MoveRow(row, 1);
                     }
                     break;
             }
 
-            // If moved, add another random tile
-            if (moved)
-            {
-                AddRandomTile();
-            }
+            // Once moved, add random tile
+            AddRandomTile();
 
-            return moved;
+            return gamePoints;
         }
 
         /// <summary>
@@ -108,9 +105,9 @@ namespace BONUS_GAME
         /// <param name="col">The column index.</param>
         /// <param name="direction">The direction in which to move the tiles.</param>
         /// <returns>True if any tiles were moved, false otherwise.</returns>
-        private bool MoveColumn(int col, int direction)
+        private int MoveColumn(int col, int direction)
         {
-            bool moved = false;
+            int points = 0;
 
             // Repeat the movement and merging until no further movement is possible
             do
@@ -142,7 +139,7 @@ namespace BONUS_GAME
                             if (columnData[newRow + direction] == columnData[row])
                             {
                                 columnData[newRow + direction] *= 2;
-                                Game.Score += columnData[newRow + direction];
+                                points += columnData[newRow + direction];
                                 columnData[row] = 0;
                                 iterationMoved = true;
                                 break;
@@ -161,7 +158,6 @@ namespace BONUS_GAME
                 // Update the board if any movement or merging occurred in this iteration
                 if (iterationMoved)
                 {
-                    moved = true;
                     for (int row = 0; row < 4; row++)
                     {
                         Data[row, col] = columnData[row];
@@ -175,7 +171,7 @@ namespace BONUS_GAME
 
             } while (true); // Repeat until no further movement is possible
 
-            return moved;
+            return points;
         }
 
         /// <summary>
@@ -184,9 +180,9 @@ namespace BONUS_GAME
         /// <param name="row">The row index.</param>
         /// <param name="direction">The direction in which to move the tiles.</param>
         /// <returns>True if any tiles were moved, false otherwise.</returns>
-        private bool MoveRow(int row, int direction)
+        private int MoveRow(int row, int direction)
         {
-            bool moved = false;
+            int points = 0;
 
             // Repeat the movement and merging until no further movement is possible
             do
@@ -218,7 +214,7 @@ namespace BONUS_GAME
                             if (rowData[newCol + direction] == rowData[col])
                             {
                                 rowData[newCol + direction] *= 2;
-                                Game.Score += rowData[newCol + direction];
+                                points += rowData[newCol + direction];
                                 rowData[col] = 0;
                                 iterationMoved = true;
                                 break;
@@ -237,7 +233,6 @@ namespace BONUS_GAME
                 // Update the board if any movement or merging occurred in this iteration
                 if (iterationMoved)
                 {
-                    moved = true;
                     for (int col = 0; col < 4; col++)
                     {
                         Data[row, col] = rowData[col];
@@ -251,7 +246,7 @@ namespace BONUS_GAME
 
             } while (true); // Repeat until no further movement is possible
 
-            return moved;
+            return points;
         }
     }
 }

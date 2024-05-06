@@ -21,10 +21,10 @@ namespace BONUS_GAME
         private static int _score = 0;
 
         // Gets or sets the player's score.
-        public static int Score
+        public static int Points
         {
             get { return _score; }
-            set { _score = value; }
+            protected set { _score = value; }
         }
 
         /// <summary>
@@ -45,17 +45,18 @@ namespace BONUS_GAME
         /// </summary>
         /// <param name="direction">The direction in which to move the tiles.</param>
         /// <returns>True if the tiles were moved, false otherwise.</returns>
-        public bool Move(Direction direction)
+        public void Move(Direction direction)
         {
             // If the game is already lost, disallow further moves.
             if (_status == GameStatus.Lose)
-                return false;
+                return;
 
             // Attempt to move the tiles in the specified direction.
-            bool moved = Board.Move(direction);
+            int score = Board.Move(direction);
+            Points += score;
 
             // Check if the move was successful and update game status accordingly.
-            if (moved)
+            if (score > 0)
             {
                 if (IsWin())
                 {
@@ -66,8 +67,6 @@ namespace BONUS_GAME
                     _status = GameStatus.Lose;
                 }
             }
-
-            return moved;
         }
 
         /// <summary>

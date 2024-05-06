@@ -69,7 +69,7 @@ namespace BONUS_GAME
         private void DrawBoard()
         {
             Console.Clear();
-            Console.WriteLine("Score: " + Game.Score);
+            Console.WriteLine("Score: " + Game.Points);
             Console.WriteLine();
 
             // Calculate the width of the entire board (including separators)
