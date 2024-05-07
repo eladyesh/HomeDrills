@@ -1,4 +1,5 @@
-def is_sorted_palindrome(s: string) -> bool:
+def is_sorted_palindrome(s: str) -> bool:
+    
     """
     Check if a string is a sorted palindrome.
 
@@ -8,7 +9,7 @@ def is_sorted_palindrome(s: string) -> bool:
     Returns:
     bool: True if the string is a sorted palindrome, False otherwise.
     """
-    
+
     # Check if the string is a palindrome
     if s != s[::-1]:
         return False
@@ -35,4 +36,4 @@ if __name__ == "__main__":
     print(is_sorted_palindrome("שוש"))  # False
     print(is_sorted_palindrome("אבגדגבא"))  # True
     print(is_sorted_palindrome("pbp"))  # False
-    print(is_sorted_palindrome("abcdcba"))  # True
+    print(is_sorted_palindrome("12abcdcba21"))  # True
