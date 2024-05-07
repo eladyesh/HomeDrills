@@ -47,7 +47,7 @@
     <Compile Include="ILanguageConverter.cs" />
     <Compile Include="LinkedList.cs" />
     <Compile Include="Node.cs" />
-    <Compile Include="NוumericalExpression.cs" />
+    <Compile Include="NumericalExpression.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

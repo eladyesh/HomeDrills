@@ -14,8 +14,8 @@ namespace CSharpDrillsPart3
     /// </summary>
     public class NumericalExpression
     {
-        private long number;
-        private Func<long, string> convertToWordsFunc;
+        private readonly long number;
+        private readonly Func<long, string> convertToWordsFunc;
 
         /// <summary>
         /// Initializes a new instance of the NumericalExpression class.
