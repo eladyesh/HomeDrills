@@ -70,15 +70,27 @@ namespace BONUS_GAME
         /// </summary>
         private void DrawBoard()
         {
+            // Clear the console before drawing the board
             Console.Clear();
+
+            // Print the current score
             Console.WriteLine("Score: " + Game.Points);
             Console.WriteLine();
 
             // Calculate the width of the entire board (including separators)
-            int boardWidth = 4 * 8 + 5; // give each number 8 chars + padding
+            int boardWidth = 4 * 8 + 5; // Each number has 8 characters with padding, and there are 4 numbers with 5 separators
 
             // Center the board horizontally
             int leftPadding = (Console.WindowWidth - boardWidth) / 2;
+
+            // Print the top border of the box
+            Console.SetCursorPosition(leftPadding, Console.CursorTop);
+            Console.Write("+");
+            for (int i = 0; i < boardWidth - 5; i++)
+            {
+                Console.Write("-");
+            }
+            Console.WriteLine("+");
 
             // Iterate over each row in the board
             for (int row = 0; row < 4; row++)
@@ -86,23 +98,31 @@ namespace BONUS_GAME
                 // Set the cursor position for the current row
                 Console.SetCursorPosition(leftPadding, Console.CursorTop);
 
-                // Print horizontal separator at the beginning of each row
+                // Print vertical separator at the beginning of each row
                 Console.Write("|");
 
                 // Iterate over each column in the row
                 for (int col = 0; col < 4; col++)
                 {
                     // Print the number with adjusted padding and font color
-                    Console.ForegroundColor = GetColor(_game.Board.Data[row, col]);
-                    Console.Write(_game.Board.Data[row, col].ToString().PadLeft(5).PadRight(7));
+                    Console.ForegroundColor = GetColor(_game.Board.Data[row, col]); // GetColor() returns the appropriate color based on the number
+                    Console.Write(_game.Board.Data[row, col].ToString().PadLeft(5).PadRight(7)); // Adjust padding for each number
                     Console.ResetColor();
 
-                    // Print vertical separator after each number
-                    Console.Write("|");
+                    Console.Write(col == 3 ? " |" : "|");
                 }
 
                 // Move to the next row
                 Console.WriteLine();
+
+                // Print horizontal separator line after each row
+                Console.SetCursorPosition(leftPadding, Console.CursorTop);
+                Console.Write("+");
+                for (int i = 0; i < boardWidth - 5; i++)
+                {
+                   Console.Write("-");
+                }
+                Console.WriteLine("+");
             }
         }
 
