@@ -100,6 +100,41 @@ namespace BONUS_GAME
         }
 
         /// <summary>
+        /// Checks if all elements in the array are equal or if the array can be divided into two equal halves.
+        /// </summary>
+        /// <param name="numbers">The array of integers to be checked.</param>
+        /// <returns>True if all elements are equal or if two halves are equal, otherwise false.</returns>
+        public static bool IsAllEqualOrTwoHalvesEqual(int[] numbers)
+        {
+            // Check if the array contains any zeros
+            if (numbers.Contains(0))
+            {
+                return false;
+            }
+
+            IEnumerable<IGrouping<int, int>> groupedNumbers = numbers.GroupBy(n => n);
+            int distinctGroupsCount = groupedNumbers.Count();
+
+            if (distinctGroupsCount == 1)
+            {
+                return true; // All elements are equal
+            }
+            else if (distinctGroupsCount == 2)
+            {
+                // Check if first number in half is equal to the other in the half
+                // So that [2,2,4,4] would be return true
+                // But [2,4,4,2] would be return false
+
+                return (numbers[0] == numbers[1]) && (numbers[2] == numbers[3]); 
+            }
+            else
+            {
+                return false; // More than two distinct numbers
+            }
+        }
+
+
+        /// <summary>
         /// Moves tiles within a column in the specified direction.
         /// </summary>
         /// <param name="col">The column index.</param>
@@ -109,10 +144,18 @@ namespace BONUS_GAME
         {
             int points = 0;
 
+            // A set to keep indexes of merged tiles
+            HashSet<int> merged = new HashSet<int>();
+
+            // Check if array has equal halves (e.g [2,2,2,2] or [4,4,2,2] or [2,2,4,4])
+            int[] columnData = Enumerable.Range(0, 4).Select(row => Data[row, col]).ToArray();
+            bool allEqualOrTwoHalvesEqual = IsAllEqualOrTwoHalvesEqual(columnData);
+
             // Repeat the movement and merging until no further movement is possible
             do
             {
-                int[] columnData = new int[4];
+                bool iterationMoved = false; // Reset for each iteration
+                columnData = new int[4];
                 for (int row = 0; row < 4; row++)
                 {
                     columnData[row] = Data[row, col];
@@ -123,9 +166,6 @@ namespace BONUS_GAME
                 int endRow = (direction == -1) ? 4 : -1;
                 int step = (direction == -1) ? 1 : -1;
 
-                // Track if any movement or merging occurred in this iteration
-                bool iterationMoved = false;
-
                 // Move tiles within the column
                 for (int row = startRow; row != endRow; row += step)
                 {
@@ -134,23 +174,40 @@ namespace BONUS_GAME
                         int newRow = row;
 
                         // Check for equal tiles, and merge or move
-                        while (newRow + direction >= 0 && newRow + direction < 4 && (columnData[newRow + direction] == 0 || columnData[newRow + direction] == columnData[row]))
+                        while (newRow + direction >= 0 && newRow + direction < 4 && (columnData[newRow + direction] == 0 || columnData[newRow + direction] == columnData[row] || !merged.Contains(newRow + direction)))
                         {
                             if (columnData[newRow + direction] == columnData[row])
                             {
-                                columnData[newRow + direction] *= 2;
-                                points += columnData[newRow + direction];
-                                columnData[row] = 0;
-                                iterationMoved = true;
+                                // Check if you can merge
+                                if ((!merged.Contains(newRow) && !merged.Contains(newRow + direction)) || (merged.Count <= 2 && allEqualOrTwoHalvesEqual))
+                                {
+                                    columnData[newRow + direction] *= 2;
+                                    points += columnData[newRow + direction];
+                                    columnData[row] = 0;
+                                    iterationMoved = true; // Set to true to continue the outer loop
+                                    merged.Add(newRow);
+                                    merged.Add(newRow + direction);
+                                }
                                 break;
                             }
                             else
                             {
-                                columnData[newRow + direction] = columnData[row];
-                                columnData[row] = 0;
-                                newRow += direction;
-                                iterationMoved = true;
+
+                                // If the tile in the new position is empty (zero)
+                                if (columnData[newRow + direction] == 0)
+                                {
+                                    // Move the current tile to the empty position
+                                    columnData[newRow + direction] = columnData[row];
+                                    columnData[row] = 0;
+                                    newRow += direction; // Move to the next position
+                                    iterationMoved = true; // Set to true to continue the outer loop
+                                }
+                                else
+                                {
+                                    break;
+                                }
                             }
+                            newRow += direction; // Move to the next position
                         }
                     }
                 }
@@ -165,14 +222,13 @@ namespace BONUS_GAME
                 }
                 else
                 {
-                    // If no movement occurred in this iteration, break the loop
                     break;
                 }
-
-            } while (true); // Repeat until no further movement is possible
+            } while (true);
 
             return points;
         }
+
 
         /// <summary>
         /// Moves tiles within a row in the specified direction.
@@ -184,10 +240,18 @@ namespace BONUS_GAME
         {
             int points = 0;
 
+            // A set to keep indexes of merged tiles
+            HashSet<int> merged = new HashSet<int>();
+
+            // Check if array has equal halves (e.g [2,2,2,2] or [4,4,2,2] or [2,2,4,4])
+            int[] rowData = Enumerable.Range(0, 4).Select(col => Data[row, col]).ToArray();
+            bool allEqualOrTwoHalvesEqual = IsAllEqualOrTwoHalvesEqual(rowData);
+
             // Repeat the movement and merging until no further movement is possible
             do
             {
-                int[] rowData = new int[4];
+                bool iterationMoved = false; // Reset for each iteration
+                rowData = new int[4];
                 for (int col = 0; col < 4; col++)
                 {
                     rowData[col] = Data[row, col];
@@ -198,9 +262,6 @@ namespace BONUS_GAME
                 int endCol = (direction == -1) ? 4 : -1;
                 int step = (direction == -1) ? 1 : -1;
 
-                // Track if any movement or merging occurred in this iteration
-                bool iterationMoved = false;
-
                 // Move tiles within the row
                 for (int col = startCol; col != endCol; col += step)
                 {
@@ -209,23 +270,39 @@ namespace BONUS_GAME
                         int newCol = col;
 
                         // Check for equal tiles, and merge or move
-                        while (newCol + direction >= 0 && newCol + direction < 4 && (rowData[newCol + direction] == 0 || rowData[newCol + direction] == rowData[col]))
+                        while (newCol + direction >= 0 && newCol + direction < 4 && (rowData[newCol + direction] == 0 || rowData[newCol + direction] == rowData[col] || !merged.Contains(newCol + direction)))
                         {
                             if (rowData[newCol + direction] == rowData[col])
                             {
-                                rowData[newCol + direction] *= 2;
-                                points += rowData[newCol + direction];
-                                rowData[col] = 0;
-                                iterationMoved = true;
+                                // Check if you can merge
+                                if ((!merged.Contains(newCol) && !merged.Contains(newCol + direction)) || (merged.Count <= 2 && allEqualOrTwoHalvesEqual))
+                                {
+                                    rowData[newCol + direction] *= 2;
+                                    points += rowData[newCol + direction];
+                                    rowData[col] = 0;
+                                    iterationMoved = true; // Set to true to continue the outer loop
+                                    merged.Add(newCol);
+                                    merged.Add(newCol + direction);
+                                }
                                 break;
                             }
                             else
                             {
-                                rowData[newCol + direction] = rowData[col];
-                                rowData[col] = 0;
-                                newCol += direction;
-                                iterationMoved = true;
+                                // If the tile in the new position is empty (zero)
+                                if (rowData[newCol + direction] == 0)
+                                {
+                                    // Move the current tile to the empty position
+                                    rowData[newCol + direction] = rowData[col];
+                                    rowData[col] = 0;
+                                    newCol += direction; // Move to the next position
+                                    iterationMoved = true; // Set to true to continue the outer loop
+                                }
+                                else
+                                {
+                                    break;
+                                }
                             }
+                            newCol += direction; // Move to the next position
                         }
                     }
                 }
@@ -240,13 +317,13 @@ namespace BONUS_GAME
                 }
                 else
                 {
-                    // If no movement occurred in this iteration, break the loop
                     break;
                 }
-
-            } while (true); // Repeat until no further movement is possible
+            } while (true);
 
             return points;
         }
+
+
     }
 }
