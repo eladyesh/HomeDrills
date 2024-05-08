@@ -55,9 +55,19 @@ namespace CSharpDrillsPart3
         public static int SumLetters(long upperLimit, Func<long, string> convertToWordsFunc)
         {
             int sum = 0;
-            for (long i = 0; i <= upperLimit; i++)
+            if (upperLimit < 0)
             {
-                sum += new NumericalExpression(i, convertToWordsFunc).ToString().Replace(" ", "").Length;
+                for (long i = 0; i >= upperLimit; i--)
+                {
+                    sum += new NumericalExpression(i, convertToWordsFunc).ToString().Replace(" ", "").Length;
+                }
+            }
+            else
+            {
+                for (long i = 0; i <= upperLimit; i++)
+                {
+                    sum += new NumericalExpression(i, convertToWordsFunc).ToString().Replace(" ", "").Length;
+                }
             }
             return sum;
         }
@@ -80,9 +90,19 @@ namespace CSharpDrillsPart3
         {
             long upperLimit = numericalExpression.GetValue();
             int sum = 0;
-            for (long i = 0; i <= upperLimit; i++)
+            if (upperLimit < 0)
             {
-                sum += new NumericalExpression(i, convertToWordsFunc).ToString().Replace(" ", "").Length;
+                for (long i = 0; i >= upperLimit; i--)
+                {
+                    sum += new NumericalExpression(i, convertToWordsFunc).ToString().Replace(" ", "").Length;
+                }
+            }
+            else
+            {
+                for (long i = 0; i <= upperLimit; i++)
+                {
+                    sum += new NumericalExpression(i, convertToWordsFunc).ToString().Replace(" ", "").Length;
+                }
             }
             return sum;
         }

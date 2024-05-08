@@ -104,35 +104,7 @@ namespace BONUS_GAME
         /// </summary>
         /// <param name="numbers">The array of integers to be checked.</param>
         /// <returns>True if all elements are equal or if two halves are equal, otherwise false.</returns>
-        public static bool IsAllEqualOrTwoHalvesEqual(int[] numbers)
-        {
-            // Check if the array contains any zeros
-            if (numbers.Contains(0))
-            {
-                return false;
-            }
-
-            IEnumerable<IGrouping<int, int>> groupedNumbers = numbers.GroupBy(n => n);
-            int distinctGroupsCount = groupedNumbers.Count();
-
-            if (distinctGroupsCount == 1)
-            {
-                return true; // All elements are equal
-            }
-            else if (distinctGroupsCount == 2)
-            {
-                // Check if first number in half is equal to the other in the half
-                // So that [2,2,4,4] would be return true
-                // But [2,4,4,2] would be return false
-
-                return (numbers[0] == numbers[1]) && (numbers[2] == numbers[3]); 
-            }
-            else
-            {
-                return false; // More than two distinct numbers
-            }
-        }
-
+        public static bool IsAllEqualOrTwoHalvesEqual(int[] numbers) => (numbers[0] == numbers[1]) && (numbers[2] == numbers[3]);
 
         /// <summary>
         /// Moves tiles within a column in the specified direction.

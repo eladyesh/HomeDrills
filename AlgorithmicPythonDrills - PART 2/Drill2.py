@@ -1,4 +1,4 @@
-def pythagorean_triplet_by_sum(sum: int):
+def pythagorean_triplet_by_sum(sum: int) -> None:
 
     """
     Prints all Pythagorean triplets that sum up to a given number.

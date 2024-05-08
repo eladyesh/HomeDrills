@@ -2,12 +2,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def main():
+def main() -> None:
     
     """
     Main function to collect input numbers, calculate statistics (average, number of positive numbers, sorted numbers
     in ascending order), and display results.
     """
+    
     numbers = []
 
     # Input numbers from user
