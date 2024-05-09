@@ -1,7 +1,7 @@
 def is_sorted_palindrome(s: str) -> bool:
     
     """
-        Check if a string is a sorted palindrome.
+     Check if a string is a sorted palindrome.
 
     Parameters:
         s (str): The input string to be checked.
