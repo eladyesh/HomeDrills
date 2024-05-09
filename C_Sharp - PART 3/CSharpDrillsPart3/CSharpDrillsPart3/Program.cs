@@ -63,8 +63,8 @@ namespace CSharpDrillsPart3
             // Updated min value and max value
             minNode = list.GetMinNode();
             maxNode = list.GetMaxNode();
-            Console.WriteLine("Minimum Value: " + minNode.Value);
-            Console.WriteLine("Maximum Value: " + maxNode.Value);
+            Console.WriteLine("Updated Minimum Value: " + minNode.Value);
+            Console.WriteLine("Updated Maximum Value: " + maxNode.Value);
 
             Console.WriteLine("\n\n===========================================");
             Console.WriteLine("================ QUESTION 7 ===============");

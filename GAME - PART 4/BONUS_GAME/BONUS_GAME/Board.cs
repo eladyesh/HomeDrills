@@ -58,13 +58,12 @@ namespace BONUS_GAME
         /// Moves tiles on the board in the specified direction.
         /// </summary>
         /// <param name="direction">The direction in which to move the tiles.</param>
-        /// <returns>True if any tiles were moved, false otherwise.</returns>
+        /// <returns>The number of points earned in the move.</returns>
         public int Move(Direction direction)
         {
             int gamePoints = 0;
 
-            // Check what numbers are even at each column row
-            // If you can move, update the moved to true, and return
+            // Check to which direction player moved and get add the score to the game points
             switch (direction)
             {
                 case Direction.Up:
@@ -95,7 +94,6 @@ namespace BONUS_GAME
 
             // Once moved, add random tile
             AddRandomTile();
-
             return gamePoints;
         }
 
@@ -111,7 +109,7 @@ namespace BONUS_GAME
         /// </summary>
         /// <param name="col">The column index.</param>
         /// <param name="direction">The direction in which to move the tiles.</param>
-        /// <returns>True if any tiles were moved, false otherwise.</returns>
+        /// <returns>The number of points earned in the move.</returns>
         private int MoveColumn(int col, int direction)
         {
             int points = 0;
@@ -145,7 +143,7 @@ namespace BONUS_GAME
                     {
                         int newRow = row;
 
-                        // Check for equal tiles, and merge or move
+                        // Check for equal tiles, and merge or move in the speciied direction
                         while (newRow + direction >= 0 && newRow + direction < 4 && (columnData[newRow + direction] == 0 || columnData[newRow + direction] == columnData[row] || !merged.Contains(newRow + direction)))
                         {
                             if (columnData[newRow + direction] == columnData[row])
@@ -201,13 +199,12 @@ namespace BONUS_GAME
             return points;
         }
 
-
         /// <summary>
         /// Moves tiles within a row in the specified direction.
         /// </summary>
         /// <param name="row">The row index.</param>
         /// <param name="direction">The direction in which to move the tiles.</param>
-        /// <returns>True if any tiles were moved, false otherwise.</returns>
+        /// <returns>The number of points earned in the move.</returns>
         private int MoveRow(int row, int direction)
         {
             int points = 0;

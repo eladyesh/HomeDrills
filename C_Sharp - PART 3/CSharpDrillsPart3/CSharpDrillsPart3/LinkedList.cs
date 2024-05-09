@@ -172,7 +172,7 @@ namespace CSharpDrillsPart3
         }
 
         /// <summary>
-        /// Sorts the elements of the list in non-decreasing order. (Bubble Sort)
+        /// Sorts the elements of the list in an ascending order. (Bubble Sort)
         /// </summary>
         public void Sort()
         {
@@ -252,8 +252,8 @@ namespace CSharpDrillsPart3
             Node<int> current = head;
             Node<int> min = head;
 
-            // Iterate over list, check if there is a number that is smaller than head.value;
-            // If so, update min
+            // Iterate over list, check if there is a number that is smaller than head.value.
+            // If so, update min, and continue iterating over the list finding the minium value
             while (current != null)
             {
                 if (current.Value < min.Value)
@@ -279,8 +279,8 @@ namespace CSharpDrillsPart3
             Node<int> current = head;
             Node<int> max = head;
 
-            // Iterate over list, check if there is a number that is bigger than head.value;
-            // If so, update max
+            // Iterate over list, check if there is a number that is bigger than head.value.
+            // If so, update max, and continue iterating over the list finding the maximum value
             while (current != null)
             {
                 if (current.Value > max.Value)

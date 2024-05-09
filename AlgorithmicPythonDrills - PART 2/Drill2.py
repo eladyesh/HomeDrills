@@ -11,7 +11,7 @@ def pythagorean_triplet_by_sum(sum: int) -> None:
     """
 
     # We can solve the equation:
-    # 1. ---> (a ** 2 + b ** 2 = c ** 2) => (a ** 2 + b ** 2 = (sum - a - b) * (sum - a - b)
+    # 1. ---> (a ** 2 + b ** 2 = c ** 2) => (a ** 2 + b ** 2 = (sum - a - b) * (sum - a - b))
     # 2. ---> a ** 2 + b ** 2 = sum ** 2 - a * sum - b * sum - a * sum + a ** 2 + a * b - b * sum  + a * b + b ** 2
     # 3. ---> 2 * b * sum - 2 * a * b = sum ** 2 - 2 * a * sum
     # 4. ---> b = (sum ** 2 - 2 * a * sum) / (2 * (sum - a))
